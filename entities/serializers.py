@@ -1,6 +1,6 @@
 from rest_framework.serializers import ModelSerializer
 from .models import Entity
-from django.contrib.auth import get_user_model
+from entity_classes.models import EntityClass
 
 
 class EntitySerializer(ModelSerializer):
@@ -10,8 +10,16 @@ class EntitySerializer(ModelSerializer):
         fields = '__all__'
 
 
-class UserSerializer(ModelSerializer):
+class EntityClassSerializer(ModelSerializer):
 
     class Meta:
-        model = get_user_model()
+        model = EntityClass
+        fields = '__all__'
+
+
+class EntityDetailSerializer(ModelSerializer):
+    classes = EntityClassSerializer(many=True)
+
+    class Meta:
+        model = Entity
         fields = '__all__'

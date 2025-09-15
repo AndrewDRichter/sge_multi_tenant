@@ -1,6 +1,5 @@
-from .views import index
-from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
-    path('', index),
+    path('', include('entity_classes.urls')),
 ]
