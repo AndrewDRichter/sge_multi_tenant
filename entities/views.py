@@ -1,8 +1,8 @@
-from django.http import HttpResponse
+import json
+from django.http import HttpResponse, JsonResponse
 from .models import Entity
 from django.contrib.auth import get_user_model
 from rest_framework.generics import ListCreateAPIView
-from django.contrib.auth.decorators import login_required
 from .serializers import EntitySerializer, UserSerializer
 from django.db.utils import IntegrityError
 
@@ -23,11 +23,6 @@ class ListCreateUserAPIView(ListCreateAPIView):
         try:
             user = User.objects.create_user(username=username, password=password)
         except IntegrityError as e:
-            return HttpResponse({'Error': 'User already exists'})
-        return HttpResponse(user)
-
-
-@login_required
-def index(request):
-    user = request.user
-    return HttpResponse(f'<h1>Homepage {user}</h1>')
+            #TODO: Testar o JsonResponse em vez do HTTPResponse
+            return JsonResponse({'Error': 'User already exists'})
+        return JsonResponse(json.dump(user))

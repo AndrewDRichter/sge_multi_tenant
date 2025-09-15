@@ -35,9 +35,11 @@ PLATFORM_ADMIN_GROUP = "platform_admins"
 
 SHARED_APPS = (
     'django_tenants',
-    'tenants',
-    'entity_classes',
     'django.contrib.contenttypes',
+    #####
+    'tenants',
+    #####
+    'entity_classes',
 )
 
 TENANT_APPS = (
@@ -51,8 +53,11 @@ TENANT_APPS = (
     'rest_framework',
     'rest_framework_simplejwt',
     #####
-    'entities',
     'accounts',
+    'brands',
+    'categories',
+    'entities',
+    'products'
     )
 
 INSTALLED_APPS = list(SHARED_APPS) + [app for app in TENANT_APPS if app not in SHARED_APPS]
