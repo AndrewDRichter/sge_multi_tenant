@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-j!v93r+1)gs43!i-8m+j7az8cc_h%^s6gb=@ati96cos@nm=%!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['platform.localhost', 'localhost', 'aromas.localhost']
+ALLOWED_HOSTS = ['platform.localhost', 'localhost', 'aromas.localhost', 'leandrinho.localhost']
 
 
 CONTROL_TENANT_SCHEMA = "platform"                # <- escolha o nome do seu tenant de controle
