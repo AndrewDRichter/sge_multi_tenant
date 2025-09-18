@@ -102,10 +102,10 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django_tenants.postgresql_backend',
-        'NAME': 'multi_tenant_api',
-        'USER': config('DB_USER', cast=str),
-        'PASSWORD': config('DB_PASSWORD', cast=str),
-        'HOST': 'localhost',
+        'NAME': 'sge_mt',
+        'USER': 'postgres',
+        'PASSWORD': 'masterkey',
+        'HOST': 'sge_mt_db',
         'PORT': 5432,
     }
 }

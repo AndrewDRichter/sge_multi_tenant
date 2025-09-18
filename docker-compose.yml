@@ -1,0 +1,23 @@
+services:
+
+    sge_mt_web:
+        build: .
+        restart: always
+        ports:
+            - 8000:8000
+        depends_on:
+            - sge_mt_db
+
+    sge_mt_db:
+        image: postgres:16
+        ports:
+            - 5432:5432
+        volumes:
+            - postgres_data:/var/lib/postgresql/data/
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=masterkey
+            - POSTGRES_DB=sge_mt
+
+volumes:
+    postgres_data:

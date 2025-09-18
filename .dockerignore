@@ -1,3 +1,6 @@
+venv
 .env
 ativa.bat
+.git
+.gitignore
 __pycache__
